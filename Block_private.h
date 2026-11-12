@@ -27,7 +27,12 @@
 #endif
 
 #ifndef __ptrauth_objc_isa_pointer
+#if __has_feature(ptrauth_calls)
+/* process-independent data key (DA), address-discriminated, 0x6AE1: the objc isa ABI */
+#define __ptrauth_objc_isa_pointer __ptrauth(2, 1, 0x6AE1)
+#else
 #define __ptrauth_objc_isa_pointer
+#endif
 #endif
 
 #if __has_feature(ptrauth_calls) &&  __cplusplus < 201103L
