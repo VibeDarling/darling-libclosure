@@ -75,7 +75,7 @@
 // storage as extra data.
 // Function pointers inside block objects are signed this way.
 template <typename Fn, ptrauth_key Key>
-class StorageSignedFunctionPointer {
+class __attribute__((visibility("hidden"))) StorageSignedFunctionPointer {
     uintptr_t bits;
 
  public:
